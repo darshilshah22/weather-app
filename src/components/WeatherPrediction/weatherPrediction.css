@@ -1,0 +1,57 @@
+.weather-prediction {
+  margin-top: 32px;
+}
+
+.weather-prediction .title {
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.wp-card {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--box-shadow2);
+  display: flex;
+  align-items: center;
+}
+
+.wp-card .card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 10px;
+  color: var(--text-color);
+  font-weight: 500;
+  width: 100%;
+}
+
+.weather-type {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather-type span {
+  color: var(--btn-color);
+}
+
+.next-btn {
+    margin-left: auto;
+    margin-top: 32px;
+  color: white;
+  border-radius: 16px;
+  background: var(--btn-color);
+  box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.6),
+    inset 0px -1px 1px 0px rgba(0, 0, 0, 0.12),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.08);
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  gap: 8px;
+}

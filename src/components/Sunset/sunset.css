@@ -1,0 +1,64 @@
+.sunset {
+  padding: 16px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: var(--box-shadow2);
+}
+
+.sunset .title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.sunset .rise,
+.sunset .set {
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.timings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.uv {
+  margin-top: 32px;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--text-color);
+  box-shadow: var(--box-shadow2);
+  display: flex;
+  align-items: center;
+}
+
+.uv-text {
+  color: #fff;
+  font-size: 14px;
+  margin-left: 8px;
+}
+
+.uv-text .uvi {
+  font-size: 22px;
+}
+
+.uvi{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.uvi span {
+    padding: 4px 10px;
+  color: var(--text-color);
+  font-size: 12px;
+  border-radius: 80px;
+  background: #cce16a;
+  box-shadow: var(--box-shadow2);
+}

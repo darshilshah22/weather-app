@@ -1,0 +1,34 @@
+.wd-header {
+  display: flex;
+  align-items: center;
+}
+
+.wd-header > img {
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.wd-heading > p {
+  font-size: 1rem;
+}
+
+.wd-heading p:last-child {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.wd-mid {
+  margin-left: 6px;
+  margin-top: 24px;
+}
+
+.wd-mid p:first-child {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.wd-mid p:last-child {
+  font-size: 12px;
+}

@@ -1,0 +1,32 @@
+.location {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.place-name > p {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.loc-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.loc-temp {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--btn-color);
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: #DDDCDC;
+  margin: 24px 0;
+}

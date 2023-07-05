@@ -1,0 +1,53 @@
+.air-quality {
+  background: linear-gradient(
+    169deg,
+    #4ca5e5 0%,
+    #77cee2 37.28%,
+    #81d8e1 61.5%,
+    #81d8e1 87.84%
+  );
+  box-shadow: var(--box-shadow);
+  border-radius: 32px;
+  margin-top: 60px;
+  width: 410px;
+}
+
+.aq-details {
+  z-index: -10;
+  margin: 32px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: white;
+}
+
+.aq-details p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.aq-card {
+  width: 100%;
+  margin-top: 32px;
+  background-color: white;
+  padding: 26px;
+  border-radius: 24px;
+}
+
+.aq-card .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 20px;
+  background: repeating-linear-gradient(135deg, var(--btn-color) 0 10px, #ffa516 0 20px)
+      0/0% no-repeat,
+    repeating-linear-gradient(135deg, #ddd 0 10px) 0/50%;
+  transition: 0.5s all ease;
+}

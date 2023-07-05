@@ -1,0 +1,71 @@
+.weather {
+  position: relative;
+  background: linear-gradient(169deg, #afe4ea 0%, #fbebd1 34.9%, #ffdfd2 100%);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  border-radius: 32px;
+  z-index: 1;
+  margin-top: 60px;
+  width: 410px;
+}
+
+.weather > img {
+  z-index: -100;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  height: 200px;
+  animation: pulse 10s ease-in infinite;
+  animation-direction: normal;
+  opacity: 0.3;
+}
+
+.weather .cloud{
+  z-index: -100;
+  position: absolute;
+  top: 10px;
+  left: 150%;
+  height: 150px;
+  animation: pulse1 20s ease-out infinite;
+  animation-direction: normal;
+  opacity: 0.3;
+}
+
+@keyframes pulse {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes pulse1 {
+  0% {
+    left: 150%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.weather-details {
+  z-index: -10;
+  margin: 32px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.weather-details p{
+    margin: 0;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.wd-cards{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 32px;
+}
