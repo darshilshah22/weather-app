@@ -24,6 +24,7 @@ const Context = ({ children }) => {
     };
 
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cord.lat, cord.long]);
 
   return (

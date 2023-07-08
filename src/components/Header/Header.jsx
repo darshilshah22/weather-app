@@ -6,7 +6,6 @@ import Bell from "../../assets/Bell.svg";
 
 const Header = ({scroll}) => {
   const today = new Date();
-  console.log(today.toLocaleDateString('en-us', {weekday:'long'}));
 
   const [greet, setGreet] = useState("");
 
@@ -24,7 +23,8 @@ const Header = ({scroll}) => {
     }
 
     getTime();
-  }, [today])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   
 
   return (
