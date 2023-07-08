@@ -32,7 +32,7 @@ const Header = ({scroll}) => {
       <img src={Profile} alt="Profile" />
       <div className="greet">
         <p>{greet},</p>
-        <p>Khushi Shah</p>
+        <p>Adam Jones</p>
       </div>
       <Searchbar />
       <div className="notification">
