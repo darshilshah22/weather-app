@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./weatherPrediction.css";
 import smallClouds from "../../assets/small_clouds.svg";
 import { BsCalendarDate } from "react-icons/bs";
+import { ContextAPI } from "../../Context/Context";
 
 const WeatherPrediction = () => {
+  const { darkMode } = useContext(ContextAPI);
+
   return (
     <div className="weather-prediction">
       <p className="title">Weather Predictions</p>
       {["1", "2"].map((e) => (
-        <div className="wp-card" key={e}>
+        <div
+          className={darkMode ? "wp-card dark" : "wp-card"}
+          key={e}
+        >
           <img src={smallClouds} alt="" />
           <div className="card-info">
             <p>July 06</p>

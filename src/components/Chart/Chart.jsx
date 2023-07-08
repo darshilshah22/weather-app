@@ -2,7 +2,7 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import "./chart.css";
 
-function LineChart({ chartData }) {
+function LineChart({ chartData, darkmode }) {
   return (
     <div className="chart-container">
       <Line
@@ -26,7 +26,7 @@ function LineChart({ chartData }) {
                   weight: 700,
                   family: "Satoshi"
                 },
-                color: "#000"
+                color: darkmode ? "#fff" : "#000"
               },
               grid: {
                 drawBorder: false,
@@ -46,7 +46,7 @@ function LineChart({ chartData }) {
                   weight: 700,
                   family: "Satoshi"
                 },
-                color: "#000"
+                color: darkmode ? "#fff" : "#000"
               },
               grid: {
                 drawBorder: false,

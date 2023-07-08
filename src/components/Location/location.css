@@ -7,14 +7,10 @@
 
 .place-name > p {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .loc-name {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
   font-weight: 500;
 }
 
@@ -29,4 +25,10 @@
   width: 100%;
   background-color: #DDDCDC;
   margin: 24px 0;
+}
+
+@media screen and (max-width: 1440px){
+  .loc-temp {
+    font-size: 22px;
+  }
 }

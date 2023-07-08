@@ -1,25 +1,26 @@
 :root {
-  --box-shadow: inset 0px 0px 0px 4px rgba(0, 0, 0, 0.04),
-    inset 0px 2px 4px 0px rgba(0, 0, 0, 0.16),
+  --box-shadow: inset 0px 2px 4px 0px rgba(0, 0, 0, 0.04),
     inset 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
-    inset 0px 2px 3px 0px rgba(255, 255, 255, 0.66), inset 0px 0px 0px 2px #fff,
-    inset 0px 0px 18px 1px rgba(0, 0, 0, 0.02),
-    inset 0px 1px 1px 0px rgba(0, 0, 0, 0.12),
-    inset 0px 2px 4px 0px rgba(0, 0, 0, 0.04);
+    inset 0px 0px 1.125rem 1px rgba(0, 0, 0, 0.02),
+    0px 0px 0px 2px rgba(255, 255, 255),
+    inset 0px 2px 3px 0px rgb(255, 255, 255, 0.66),
+    0px 0px 1.125rem 1px rgba(0, 0, 0, 0.02),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.12), 0px 2px 4px 0px rgba(0, 0, 0, 0.16),
+    0px 0px 0px 4px rgba(0, 0, 0, 0.04);
   --box-shadow2: 0px 1px 1px 0px rgba(0, 0, 0, 0.08),
     inset 0px 1px 1px 0px rgba(255, 255, 255, 0.6),
     inset 0px -1px 1px 0px rgba(0, 0, 0, 0.12);
   --text-color: #19283f;
   --btn-color: #f97f29;
+  --light-color: #fff;
+  --dark-color: #212121;
 }
 
 body {
-  background: #ffffff;
   font-family: "Satoshi", sans-serif;
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
-  display: flex;
 }
 
 * {
