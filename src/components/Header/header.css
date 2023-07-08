@@ -1,13 +1,23 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  position: relative;
+  position: sticky;
+  z-index: 100;
+}
+
+.scroll {
+  background-color: var(--text-color);
+}
+
+.header>img{
+  width: 3rem;
+  border-radius: 50%;
 }
 
 .greet {
-  margin-left: 8px;
+  margin-left: 0.5rem;
   margin-right: auto;
 }
 
@@ -18,7 +28,7 @@
 }
 
 .greet p:last-child {
-  font-size: 32px;
+  font-size: calc(22rem/16rem);
   font-weight: 700;
 }
 
@@ -31,5 +41,5 @@
   box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.6),
     inset 0px -1px 1px 0px rgba(0, 0, 0, 0.12),
     0px 1px 1px 0px rgba(0, 0, 0, 0.08);
-    margin-left: 13px;
+  margin-left: 13px;
 }

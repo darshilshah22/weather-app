@@ -1,16 +1,13 @@
 .bottom-container {
   width: 100%;
-  margin-left: 6px;
-  margin-top: 32px;
-}
-
-.bottom-header {
+  margin-top: 2rem;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .today-temp > p {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 700;
   margin: 0;
 }
@@ -25,18 +22,18 @@
 
 .bottom-menu li {
   list-style: none;
-  padding: 8px;
+  padding: 0.5rem;
   width: fit-content;
   display: flex;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   transition: color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
 .bottom-menu li:hover,
 .bottom-menu li.active {
   box-shadow: inset 100px 0 0 0 var(--btn-color);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   color: white;
 }
 
@@ -44,18 +41,12 @@
   height: 300px;
   width: 250px;
   background-color: #dff296;
-  padding: 32px;
-  border-radius: 18px;
+  padding: 2rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   box-shadow: var(--box-shadow2);
-  background: repeating-linear-gradient(
-        125deg,
-        #0000004f 0 1px,
-        transparent 0 40px
-      )
-      0/0% repeat,
-    repeating-linear-gradient(105deg, #dff296 0 20px) 0/10%;
+  /* background: url("../../assets/rainy.png") bottom / 200px no-repeat; */
   background-size: 40px 40px;
   animation: rain 5s infinite;
   margin-left: 20px;
@@ -75,7 +66,7 @@
 
 .place {
   font-weight: 700;
-  padding-top: 18px;
+  padding-top: 1.125rem;
 }
 
 .tomorrow .temp {
