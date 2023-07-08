@@ -28,7 +28,7 @@ const AirQuality = () => {
   }, []);
 
   return (
-    <section className={darkMode ? "air-quality dark" : "air-quality"}>
+    <section className={darkMode ? "air-quality black" : "air-quality"}>
       <div className="aq-details">
         <InfoHeader
           heading="Air Quality"

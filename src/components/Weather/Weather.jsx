@@ -11,7 +11,7 @@ const Weather = () => {
   const {data, darkMode} = useContext(ContextAPI);
 
   return (
-    <section className={darkMode ? "weather dark" : "weather"}>
+    <section className={darkMode ? "weather black" : "weather"}>
       <img src={clouds} alt="" />
       <img src={clouds2} alt="" className="cloud" />
 
