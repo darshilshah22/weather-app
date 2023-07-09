@@ -57,10 +57,10 @@ export const getAQI = async (city) => {
   }
 };
 
-export const getForecast = async (lat, long, days) => {
+export const getForecast = async (query, days) => {
   try {
     const res = await fetch(
-      `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${lat},${long}&days=${days}`,
+      `https://weatherapi-com.p.rapidapi.com/forecast.json?q=${query}&days=${days}`,
       {
         method: "GET",
         headers: {

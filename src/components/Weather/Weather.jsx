@@ -8,7 +8,7 @@ import cloudsun from "../../assets/cloudsun.png";
 import { ContextAPI } from "../../Context/Context";
 
 const Weather = () => {
-  const {data, darkMode} = useContext(ContextAPI);
+  const {data, darkMode, unit} = useContext(ContextAPI);
 
   return (
     <section className={darkMode ? "weather black" : "weather"}>
@@ -19,7 +19,7 @@ const Weather = () => {
         <InfoHeader
           heading="Weather"
           subHeading="What's the weather."
-          value={data.current["temp_c"] + "°C"}
+          value={(unit === "C" ? data.current["temp_c"] : data.current["temp_f"]) + `°${unit}`}
           type={data.current.condition.text}
           icon={cloudsun}
         />

@@ -3,7 +3,7 @@ import "./location.css";
 import { ContextAPI } from "../../Context/Context";
 
 const Location = () => {
-  const {data} = useContext(ContextAPI);
+  const {data, unit} = useContext(ContextAPI);
   const day = new Date().toLocaleDateString('en-us', {weekday:'long'});
 
   return (
@@ -15,7 +15,7 @@ const Location = () => {
             {`${data.location.name}, ${data.location.region}`}
           </span>
         </div>
-        <p className="loc-temp">{data.current["temp_c"]}°C</p>
+        <p className="loc-temp">{(unit === "C" ? data.current["temp_c"] : data.current["temp_f"]) + `°${unit}`}</p>
       </div>
       <div className="divider" />
     </>

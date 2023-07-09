@@ -39,29 +39,24 @@
 
 .tomorrow {
   height: 300px;
-  width: 250px;
-  background-color: #dff296;
+  width: 270px;
   padding: 2rem;
   border-radius: 1rem;
+  box-shadow: var(--box-shadow2);
+  background: url("../../assets/monsoon.svg") bottom 0px right -45px / 180px no-repeat #dff296;
+}
+
+.content{
   display: flex;
   flex-direction: column;
-  box-shadow: var(--box-shadow2);
-  /* background: url("../../assets/rainy.png") bottom / 200px no-repeat; */
-  background-size: 40px 40px;
-  animation: rain 5s infinite;
-  margin-left: 20px;
+  align-items: flex-start;
+  height: 100%;
 }
 
-@keyframes rain {
-  0% {
-  }
-  100% {
-  }
-}
-
-.tomorrow p {
+.content p {
   margin: 0;
   color: var(--text-color);
+  z-index: 1;
 }
 
 .place {
@@ -69,7 +64,7 @@
   padding-top: 1.125rem;
 }
 
-.tomorrow .temp {
+.content .temp {
   margin-top: auto;
   font-weight: 700;
   font-size: 36px;

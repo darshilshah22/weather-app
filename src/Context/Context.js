@@ -5,27 +5,37 @@ export const ContextAPI = createContext();
 
 const Context = ({ children }) => {
   const [darkMode, setDarkMode] = useState(false);
-  const [cord, setCord] = useState({lat: "", long: ""});
+  const [cord, setCord] = useState({ lat: "", long: "" });
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
   const [forecast, setForecast] = useState([]);
+  const [unit, setUnit] = useState("C");
 
   useEffect(() => {
     const fetchData = async () => {
       navigator.geolocation.getCurrentPosition(function (position) {
-        const loc = {lat: position.coords.latitude, long: position.coords.longitude};
+        const loc = {
+          lat: position.coords.latitude,
+          long: position.coords.longitude,
+        };
         setCord(() => loc);
       });
 
       if (search) {
-        const result = await getRealtimeWeather({city: search});
+        const result = await getRealtimeWeather({ city: search });
         console.log(result);
         setData(result);
-      }else if (cord.lat && cord.long) {
+        const forecastData = await getForecast(search, 6);
+        setForecast(forecastData.forecast.forecastday);
+      } else if (cord.lat && cord.long) {
         console.log(cord);
-        const result = await getRealtimeWeather({lat: cord.lat, long: cord.long});
+        const result = await getRealtimeWeather({
+          lat: cord.lat,
+          long: cord.long,
+        });
         setData(result);
-        const forecastData = await getForecast(cord.lat, cord.long, 3);
+        const forecastData = await getForecast(`${cord.lat}, ${cord.long}`, 6);
+        console.log(forecastData.forecast.forecastday);
         setForecast(forecastData.forecast.forecastday);
       }
     };
@@ -35,7 +45,18 @@ const Context = ({ children }) => {
   }, [cord.lat, cord.long, search]);
 
   return (
-    <ContextAPI.Provider value={{ darkMode, setDarkMode, data, search, setSearch, forecast }}>
+    <ContextAPI.Provider
+      value={{
+        darkMode,
+        setDarkMode,
+        data,
+        search,
+        setSearch,
+        forecast,
+        unit,
+        setUnit,
+      }}
+    >
       {children}
     </ContextAPI.Provider>
   );

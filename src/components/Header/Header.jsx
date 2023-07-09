@@ -6,7 +6,7 @@ import Bell from "../../assets/Bell.svg";
 import { ContextAPI } from "../../Context/Context";
 
 const Header = ({ scroll }) => {
-  const { data } = useContext(ContextAPI);
+  const { data, unit, setUnit } = useContext(ContextAPI);
   const today = data.location.localtime.split(" ")[1].split(":")[0];
 
   const [greet, setGreet] = useState("");
@@ -36,8 +36,8 @@ const Header = ({ scroll }) => {
         <p>Adam Jones</p>
       </div>
       <Searchbar />
-      <div className="notification">
-        <img src={Bell} alt="bell" />
+      <div className="unit" onClick={() => setUnit(unit === "C" ? "F" : "C")}>
+        <p>{unit}</p>
       </div>
     </section>
   );

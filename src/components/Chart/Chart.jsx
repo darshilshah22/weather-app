@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import "./chart.css";
+import { ContextAPI } from "../../Context/Context";
 
 function LineChart({ chartData, darkmode }) {
+  const {unit} = useContext(ContextAPI);
+  const [label, setLabel] = useState([]);
+
+  useEffect(() => {
+    const lableSet = () => {
+      setLabel(chartData.datasets[0].data);
+    }
+
+    lableSet();
+  }, [unit, chartData]);
+
   return (
     <div className="chart-container">
       <Line
@@ -24,9 +36,9 @@ function LineChart({ chartData, darkmode }) {
                 font: {
                   size: 16,
                   weight: 700,
-                  family: "Satoshi"
+                  family: "Satoshi",
                 },
-                color: darkmode ? "#fff" : "#000"
+                color: darkmode ? "#fff" : "#000",
               },
               grid: {
                 drawBorder: false,
@@ -34,7 +46,7 @@ function LineChart({ chartData, darkmode }) {
               },
             },
             x: {
-              labels: ["20°C", "28°C", "34°C", "30°C"],
+              labels: label.map((e) => `${e}°${unit}`),
               border: {
                 display: false,
               },
@@ -44,9 +56,9 @@ function LineChart({ chartData, darkmode }) {
                 font: {
                   size: 16,
                   weight: 700,
-                  family: "Satoshi"
+                  family: "Satoshi",
                 },
-                color: darkmode ? "#fff" : "#000"
+                color: darkmode ? "#fff" : "#000",
               },
               grid: {
                 drawBorder: false,
@@ -64,7 +76,7 @@ function LineChart({ chartData, darkmode }) {
                 drawBorder: false,
                 display: false,
               },
-              max: 50
+              max: unit === "C" ? 50 : 100,
             },
           },
         }}

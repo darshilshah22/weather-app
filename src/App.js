@@ -25,7 +25,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="main" style={{backgroundColor: darkMode ? "#2c2c2e" : "white"}}>
       {typeof data.current !== "undefined" ? (
         <div
           className={darkMode ? "App dark" : "App light"}
@@ -44,15 +44,17 @@ function App() {
             </div>
           </div>
           <div className={darkMode ? "right-section dark" : "right-section"}>
-            <Location />
-            <Sunset />
-            <WeatherPrediction />
+            <div className="right">
+              <Location />
+              <Sunset />
+              <WeatherPrediction />
+            </div>
           </div>
         </div>
       ) : (
         <div></div>
       )}
-    </>
+    </div>
   );
 }
 
