@@ -10,8 +10,7 @@ export const getRealtimeWeather = async ({ lat, long, city }) => {
         "X-RapidAPI-Host": "weatherapi-com.p.rapidapi.com",
       },
     });
-    const result_1 = await res.json();
-    return result_1;
+    return res;
   } catch (error) {
     return error;
   }

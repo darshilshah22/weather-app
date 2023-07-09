@@ -1,29 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import "./sunset.css";
 import sun from "../../assets/sun.png";
 import moon from "../../assets/moon.png";
-import { getSunriseSunset } from "../../Api/api_services";
 import { ContextAPI } from "../../Context/Context";
 
 const Sunset = () => {
-  const [astro, setAstro] = useState([]);
-  const { darkMode, search } = useContext(ContextAPI);
-  const { data } = useContext(ContextAPI);
-
-  useEffect(() => {
-    const fetchAQI = async () => {
-      if (search) {
-        const res = await getSunriseSunset(search);
-        setAstro(res.astronomy.astro);
-      } else {
-        const res = await getSunriseSunset(data.location.name);
-        setAstro(res.astronomy.astro);
-      }
-    };
-
-    fetchAQI();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search]);
+  const { darkMode, astro } = useContext(ContextAPI);
 
   return (
     <>

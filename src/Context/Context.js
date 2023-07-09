@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getForecast, getRealtimeWeather } from "../Api/api_services";
+import { getForecast, getRealtimeWeather, getSunriseSunset } from "../Api/api_services";
 
 export const ContextAPI = createContext();
 
@@ -10,9 +10,13 @@ const Context = ({ children }) => {
   const [search, setSearch] = useState("");
   const [forecast, setForecast] = useState([]);
   const [unit, setUnit] = useState("C");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [astro, setAstro] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       navigator.geolocation.getCurrentPosition(function (position) {
         const loc = {
           lat: position.coords.latitude,
@@ -22,21 +26,43 @@ const Context = ({ children }) => {
       });
 
       if (search) {
+        setError("");
         const result = await getRealtimeWeather({ city: search });
-        console.log(result);
-        setData(result);
-        const forecastData = await getForecast(search, 6);
-        setForecast(forecastData.forecast.forecastday);
+        if (result.status === 200) {
+          const data = await result.json();
+          setData(data);
+          const forecastData = await getForecast(search, 6);
+          setForecast(forecastData.forecast.forecastday);
+          const res = await getSunriseSunset(search);
+          setAstro(res.astronomy.astro);
+          setLoading(false);
+        } else {
+          const data = await result.json();
+          setError(data.error.message);
+          setLoading(false);
+        }
       } else if (cord.lat && cord.long) {
         console.log(cord);
         const result = await getRealtimeWeather({
           lat: cord.lat,
           long: cord.long,
         });
-        setData(result);
-        const forecastData = await getForecast(`${cord.lat}, ${cord.long}`, 6);
-        console.log(forecastData.forecast.forecastday);
-        setForecast(forecastData.forecast.forecastday);
+        if (result.status === 200) {
+          const data = await result.json();
+          setData(data);
+          const forecastData = await getForecast(
+            `${cord.lat}, ${cord.long}`,
+            6
+          );
+          setForecast(forecastData.forecast.forecastday);
+          const res = await getSunriseSunset(data.location.name);
+          setAstro(res.astronomy.astro);
+          setLoading(false);
+        } else {
+          const data = await result.json();
+          setError(data.error.error.message);
+          setLoading(false);
+        }
       }
     };
 
@@ -55,6 +81,9 @@ const Context = ({ children }) => {
         forecast,
         unit,
         setUnit,
+        loading,
+        error,
+        astro
       }}
     >
       {children}
