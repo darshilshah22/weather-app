@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import "./header.css";
 import Profile from "../../assets/profile.png";
 import Searchbar from "../Searchbar/Searchbar";
-import Bell from "../../assets/Bell.svg";
 import { ContextAPI } from "../../Context/Context";
 
 const Header = ({ scroll }) => {
@@ -13,7 +12,7 @@ const Header = ({ scroll }) => {
 
   useEffect(() => {
     const getTime = () => {
-      if (today < 24 && today < 5) {
+      if (today >= 22 || today < 5) {
         setGreet("Good Night");
       } else if (today > 4 && today < 12) {
         setGreet("Good Morning");

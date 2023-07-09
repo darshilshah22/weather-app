@@ -1,7 +1,5 @@
 import React, { useContext } from "react";
 import "./weatherPrediction.css";
-import smallClouds from "../../assets/small_clouds.svg";
-import { BsCalendarDate } from "react-icons/bs";
 import { ContextAPI } from "../../Context/Context";
 
 const WeatherPrediction = () => {
@@ -12,7 +10,7 @@ const WeatherPrediction = () => {
       <p className="title">Weather Predictions</p>
       {forecast.map((e) => (
         <div className={darkMode ? "wp-card dark" : "wp-card"} key={e.date}>
-          <img src={smallClouds} alt="" />
+          <img src={e.day.condition.icon} alt="" />
           <div className="card-info">
             <p>
               {new Date(e.date).toLocaleDateString("en-US", {
