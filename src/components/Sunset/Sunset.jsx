@@ -7,24 +7,27 @@ import { ContextAPI } from "../../Context/Context";
 
 const Sunset = () => {
   const [astro, setAstro] = useState([]);
-  const { darkMode } = useContext(ContextAPI);
+  const { darkMode, search } = useContext(ContextAPI);
   const { data } = useContext(ContextAPI);
 
   useEffect(() => {
     const fetchAQI = async () => {
-      const res = await getSunriseSunset(data.location.name);
-      setAstro(res.astronomy.astro);
+      if (search) {
+        const res = await getSunriseSunset(search);
+        setAstro(res.astronomy.astro);
+      } else {
+        const res = await getSunriseSunset(data.location.name);
+        setAstro(res.astronomy.astro);
+      }
     };
 
     fetchAQI();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [search]);
 
   return (
     <>
-      <div
-        className={darkMode ? "sunset dark" : "sunset"}
-      >
+      <div className={darkMode ? "sunset dark" : "sunset"}>
         <p className="title">Sunrise & Sunset</p>
         <div className="timings">
           <span className="rise">

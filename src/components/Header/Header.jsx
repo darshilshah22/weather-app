@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./header.css";
 import Profile from "../../assets/profile.png";
 import Searchbar from "../Searchbar/Searchbar";
 import Bell from "../../assets/Bell.svg";
+import { ContextAPI } from "../../Context/Context";
 
-const Header = ({scroll}) => {
-  const today = new Date();
+const Header = ({ scroll }) => {
+  const { data } = useContext(ContextAPI);
+  const today = data.location.localtime.split(" ")[1].split(":")[0];
 
   const [greet, setGreet] = useState("");
 
   useEffect(() => {
     const getTime = () => {
-      if(today.getHours > 4 && today.getHours < 12){
+      if (today < 24 && today < 5) {
+        setGreet("Good Night");
+      } else if (today > 4 && today < 12) {
         setGreet("Good Morning");
-      }else if(today.getHours < 17){
+      } else if (today >= 12 && today <= 17) {
         setGreet("Good Afternoon");
-      }else if(today.getHours < 22){
+      } else if (today > 17 && today < 22) {
         setGreet("Good Evening");
-      }else{
-        setGreet("Good Night")
       }
-    }
+    };
 
     getTime();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-  
+  }, [data]);
 
   return (
     <section className={scroll ? "header scroll" : "header"}>

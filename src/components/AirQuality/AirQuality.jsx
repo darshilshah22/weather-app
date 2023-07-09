@@ -25,7 +25,7 @@ const AirQuality = () => {
 
     fetchAQI();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [data]);
 
   return (
     <section className={darkMode ? "air-quality black" : "air-quality"}>

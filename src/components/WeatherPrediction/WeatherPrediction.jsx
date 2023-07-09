@@ -5,28 +5,28 @@ import { BsCalendarDate } from "react-icons/bs";
 import { ContextAPI } from "../../Context/Context";
 
 const WeatherPrediction = () => {
-  const { darkMode } = useContext(ContextAPI);
+  const { darkMode, forecast } = useContext(ContextAPI);
 
   return (
     <div className="weather-prediction">
       <p className="title">Weather Predictions</p>
-      {["1", "2"].map((e) => (
+      {forecast.map((e) => (
         <div
           className={darkMode ? "wp-card dark" : "wp-card"}
-          key={e}
+          key={e.date}
         >
           <img src={smallClouds} alt="" />
           <div className="card-info">
-            <p>July 06</p>
+            <p>{new Date(e.date).toLocaleDateString('en-US', {month: 'short', day: 'numeric'})}</p>
             <p className="weather-type">
-              Cloudy <span>29°/ 19°</span>
+              {e.day.condition.text} <span>{e.day["maxtemp_c"]}°/ {e.day["mintemp_c"]}°</span>
             </p>
           </div>
         </div>
       ))}
       <div className="next-btn">
         <BsCalendarDate size={20} />
-        <p>Next 5 Days</p>
+        <p>Next 3 Days</p>
       </div>
     </div>
   );
